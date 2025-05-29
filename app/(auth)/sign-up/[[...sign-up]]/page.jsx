@@ -1,5 +1,10 @@
-const { SignUp } = require("@clerk/nextjs");
+import { SignUp } from '@clerk/nextjs'
+import React from 'react'
 
-export default function(){
-    return <SignUp/>;
+const page = () => {
+  return (
+    <SignUp/>
+  )
 }
+
+export default page
