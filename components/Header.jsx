@@ -1,34 +1,28 @@
-import React from 'react'
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
-} from '@clerk/nextjs'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Button } from './ui/button'
-import { LayoutDashboard, PenBox } from 'lucide-react'
-import { checkUser } from '@/lib/checkUser'
-
-
+import React from "react";
+import { Button } from "./ui/button";
+import { PenBox, LayoutDashboard } from "lucide-react";
+import Link from "next/link";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { checkUser } from "@/lib/checkUser";
+import Image from "next/image";
 
 const Header = async () => {
   await checkUser();
+
   return (
-   <header className='fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b'>
-    <nav className='container mx-auto px-4 py-4 flex items-center justify-between'>
+    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b">
+      <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/">
-        <Image
-            src={"/FinSage.png"}
-            alt="FinSage Logo"
+          <Image
+            src={"/logo.png"}
+            alt="Welth Logo"
             width={200}
             height={60}
             className="h-12 w-auto object-contain"
           />
         </Link>
 
-
+        {/* Navigation Links - Different for signed in/out users */}
         <div className="hidden md:flex items-center space-x-8">
           <SignedOut>
             <a href="#features" className="text-gray-600 hover:text-blue-600">
@@ -43,6 +37,7 @@ const Header = async () => {
           </SignedOut>
         </div>
 
+        {/* Action Buttons */}
         <div className="flex items-center space-x-4">
           <SignedIn>
             <Link
@@ -76,13 +71,9 @@ const Header = async () => {
             />
           </SignedIn>
         </div>
+      </nav>
+    </header>
+  );
+};
 
-
-
-    </nav>
-
-   </header>
-  )
-}
-
-export default Header
+export default Header;

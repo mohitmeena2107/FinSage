@@ -1,12 +1,3 @@
-// import React from "react";
-// import { Button } from "@/components/ui/button";
-// import Image from "next/image";
-
-// export default function Home() {
-//   return (
-//     <Button>FinSage</Button>
-//   );
-// }
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -61,7 +52,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-      
+
       {/* How It Works Section */}
       <section className="py-20 bg-blue-50">
         <div className="container mx-auto px-4">
